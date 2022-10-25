@@ -1,0 +1,220 @@
+@media (max-width: 990px) {
+
+    .header-container {
+        .header {
+            &__menu-wrapper {
+                min-width: 580px;
+                max-width: 600px;
+            }
+
+            &__logo-wrapper {
+                margin-bottom: 0;
+            }
+
+            &__logo-minor {
+                display: none;
+            }
+
+            &__logo-name {
+                margin-left: 10px;
+            }
+
+            &__link {
+                font-size: 18px;
+                margin: 0 5px;
+            }
+
+            &__btn-box {
+                .header__user-btn {
+                    padding: 5px 10px;
+                    font-size: 16px;
+                    width: 80px;
+                }
+            }
+        }
+    }
+
+    .content {
+
+        .event,
+        .contest {
+            width: 650px;
+
+            &__date {
+                display: none;
+            }
+
+            &__home-team {
+                border-left: none !important;
+            }
+
+            &__home-score-pred,
+            &__away-score-pred {
+                width: 20px;
+            }
+        }
+
+        .up-btn {
+            right: calc((50% - 325px) / 2.5);
+        }
+    }
+
+    .wrapper {
+        .page-title {
+            font-size: 40px;
+        }
+
+        .page-subtitle {
+            font-size: 20px;
+        }
+
+        .leagues-tabs {
+            width: 650px;
+            grid-auto-columns: minmax(calc(640px / 6), 150px);
+
+            &__tab {
+                padding: 5px;
+            }
+        }
+    }
+
+    .league {
+        width: 650px;
+    }
+
+    .access-wrapper {
+        .page-title {
+            font-size: 40px;
+        }
+
+        &__form {
+            width: 400px;
+        }
+    }
+
+    .manage-leagues {
+        width: 650px;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(2, 215px);
+
+        &__btn {
+            width: 180px;
+            height: 180px;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .page-container {
+        padding: 0 10px !important;
+    }
+
+    .header-container {
+        .header {
+            height: 80px;
+
+            &__menu-wrapper {
+                min-width: 380px;
+                max-width: 400px;
+            }
+
+            &__logo-minor {
+                margin-left: 5px;
+                display: inline;
+            }
+
+            &__logo-name {
+                display: none;
+            }
+
+            &__link {
+                font-size: 16px;
+                margin: 0 5px;
+            }
+        }
+    }
+
+    .content-container {
+        padding: 40px 0;
+
+        .content {
+
+            .event,
+            .contest {
+                width: 480px;
+                font-size: 12px;
+            }
+
+            .btn {
+                padding: 5px 10px;
+                font-size: 16px;
+                background-color: $main-bg-color;
+                border: 1px solid $accent-color;
+            }
+
+            .up-btn {
+                font-size: 24px;
+                right: calc((50% - 240px) / 2.5);
+            }   
+        }
+    }
+
+    .wrapper {
+        .page-title {
+            &_leagues {
+                margin-left: calc((480px/3 - 120px)/2);
+            }
+        }
+
+        .page-subtitle {
+            &_leagues {
+                margin-left: calc((480px/3 - 120px)/2);
+            }
+        }
+
+
+        .leagues-tabs {
+            width: 480px;
+            grid-auto-columns: minmax(calc(470px / 6), 150px);
+
+            &__tab {
+                font-size: 14px !important;
+            }
+        }
+    }
+
+    .manage-leagues {
+        width: 480px;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(3, 230px);
+    }
+
+    .league {
+        width: 480px;
+    }
+
+    .access-wrapper {
+        .logo-major {
+            display: none;
+        }
+
+        .access {
+            margin: 0;
+            width: 400px;
+        }
+    }
+
+    .footer-container {
+        height: 80px;
+
+        .footer {
+            font-size: 16px;
+        }
+    }
+}
+
+@media (max-height: 650px) {
+    .content-container {
+        min-height: 450px;
+    }
+}

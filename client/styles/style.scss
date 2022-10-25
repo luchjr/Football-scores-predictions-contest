@@ -1,0 +1,31 @@
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+@import 'header';
+@import 'footer';
+@import 'content';
+@import 'access';
+@import 'media';
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'SF Pro Display';
+}
+
+body {
+    background: $main-bg-color;
+    background-color: $main-bg-color;
+    position: relative;
+}
+
+.page-container {
+    position: relative;
+    max-width: 1140px;
+    padding: 0 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

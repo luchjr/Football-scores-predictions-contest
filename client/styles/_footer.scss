@@ -1,0 +1,13 @@
+.footer-container {
+    border-top: 3px solid $inactive-link-color;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+}
+
+.footer {
+    color: $inactive-link-color;
+    @include font-style-main;
+}

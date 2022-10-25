@@ -1,0 +1,493 @@
+@keyframes matchStarted {
+    from {
+        background-color: rgba(41, 55, 70);
+    }
+
+    to {
+        background-color: rgba(56, 77, 99);
+    }
+}
+
+@keyframes matchStartedScore {
+    from {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    to {
+        color: $main-txt-color;
+    }
+}
+
+.content-container {
+    flex: 1;
+    padding-top: 60px;
+    padding-bottom: 100px;
+    margin: 0 auto;
+
+    .page-title {
+        @include style-title;
+    }
+}
+
+.wrapper {
+    text-align: left;
+
+    .page-title {
+        @include style-title;
+
+        &_leagues {
+            margin-left: calc((800px/3 - 200px)/2);
+        }
+    }
+
+    .page-subtitle {
+        @include style-subtitle;
+
+        &_leagues {
+            margin-left: calc((800px/3 - 200px)/2);
+        }
+
+        a {
+            text-decoration: underline;
+            font-size: 28px;
+            font-weight: 700;
+
+            &:visited {
+                color: $accent-color;
+            }
+
+        }
+    }
+
+    .rival {
+        font-weight: 900;
+        margin-bottom: 40px;
+    }
+
+    .leagues-tabs {
+        margin-top: 40px;
+        width: 800px;
+        height: 40px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+        grid-auto-columns: minmax(calc(790px / 6), 150px);
+
+        &__tab {
+            line-height: 28px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-right: 4px;
+            padding: 5px 10px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 400;
+            background-color: transparent;
+            color: $accent-color;
+            border: 2px solid $accent-color;
+            border-bottom: none;
+            border-radius: 10px 10px 0 0;
+
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
+
+        :hover {
+            text-decoration: underline;
+            transition: 0.2s ease-in-out;
+        }
+
+        &__tab-active {
+            color: $league-tabs-color;
+            font-weight: 500;
+            background-color: $accent-color;
+            text-decoration: none !important;
+        }
+    }
+}
+
+
+.content {
+
+    .event,
+    .contest {
+        @include font-style-table;
+        width: 800px;
+        border-collapse: collapse;
+        border-top: none;
+        background-color: $main-bg-color;
+        text-align: center;
+
+        caption {
+            height: 43px;
+            line-height: 40px;
+            padding-left: 13px;
+            text-align: left;
+            font-weight: 700;
+            color: $league-tabs-color;
+            background-color: $inactive-link-color;
+            border: 3px solid $main-bg-color;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        tr {
+            th {
+                padding: 0;
+                height: 40px;
+                line-height: 18px;
+                color: $league-tabs-color;
+                background-color: $inactive-link-color;
+                border: 3px solid $main-bg-color;
+                border-top: none;
+
+                &:first-child {
+                    border-left: none !important;
+                }
+
+                &:last-child {
+                    border-right: none !important;
+                }
+            }
+
+            td {
+                &:first-child {
+                    border-left: none !important;
+                }
+
+                &:last-child {
+                    border-right: none !important;
+                }
+            }
+
+
+        }
+
+        td {
+            padding: 0;
+            border: 3px solid $main-bg-color;
+        }
+
+
+        &__match,
+        &__user {
+            height: 50px;
+            background-color: $table-main-color;
+        }
+
+        &__date,
+        &__rank {
+            width: 70px;
+            line-height: 22px;
+        }
+
+        &__date {
+            font-size: 12px;
+        }
+
+        &__home-team,
+        &__away-team {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 28%;
+            background-color: $table-addition-color;
+        }
+
+        &__home-score-pred,
+        &__away-score-pred {
+            width: 30px;
+
+            input {
+                padding: 0;
+                text-align: center;
+                font-weight: 700;
+                border: none;
+                height: 47px;
+                width: 100%;
+
+                &::placeholder {
+                    color: $league-tabs-color;
+                }
+
+                &:disabled {
+                    background-color: $inactive-link-color;
+                }
+
+                &:focus {
+                    outline: none;
+                    border: 3px double $league-tabs-color;
+                }
+            }
+        }
+
+        &__wrong-input {
+            border: 2px solid red !important;
+        }
+
+        &__home-score,
+        &__away-score {
+            width: 30px;
+        }
+
+        &__prediction-points {
+            width: 20px;
+        }
+
+        &__earned {
+            color: $league-tabs-color;
+            font-weight: 700;
+            background-color: $accent-color;
+        }
+
+        &__started {
+
+            .event__home-team,
+            .event__away-team {
+                animation: matchStarted 1.3s infinite ease-in-out alternate;
+            }
+
+            .event__home-score,
+            .event__away-score {
+                animation: matchStartedScore 1.3s infinite ease-in-out alternate;
+            }
+
+        }
+    }
+
+    .contest {
+        &__prediction-points {
+            width: 20%;
+        }
+
+        &__username {
+            background-color: $table-addition-color;
+            width: 60%;
+
+            a {
+                display: block;
+                line-height: 44px;
+                text-decoration: underline;
+                color: $main-txt-color;
+
+                &:hover {
+                    color: $accent-color;
+                }
+            }
+        }
+
+        &__current-user {
+            font-weight: 500;
+            background-color: $accent-color;
+            color: $league-tabs-color;
+
+            .contest__username {
+                background-color: $accent-color;
+            }
+        }
+    }
+}
+
+.btn {
+    cursor: pointer;
+    @include font-style-main;
+    color: $accent-color;
+    padding: 10px 20px;
+    background-color: $main-bg-color;
+    border: 1px solid $accent-color;
+    transition: .4s ease-in-out;
+
+    &:disabled {
+        opacity: 0.4;
+
+        &:hover {
+            border-radius: 0;
+        }
+    }
+
+    &:hover {
+        border-radius: 15px;
+    }
+}
+
+.save-predictions-btn {
+    margin-top: 40px;
+}
+
+.table-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #fff;
+    width: 800px;
+    min-height: 500px;
+    background-origin: content-box;
+}
+
+.league {
+    margin: 0 auto;
+    height: 500px;
+    position: relative;
+    border: 3px solid $league-tabs-color;
+
+    &__msg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgba(69, 255, 144, 0.5);
+        font-size: 24px;
+        font-weight: 500;
+    }
+}
+
+
+.request-error-msg {
+    background-color: rgb(255, 0, 0, 0.7);
+}
+
+.action-msg {
+    opacity: 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    background-color: rgb(212, 239, 223);
+    bottom: 0;
+    right: 10px;
+    padding: 15px 10px;
+    border-radius: 5px;
+
+    &_active {
+        opacity: 1;
+        bottom: 150px !important;
+        transition: 1s ease-out;
+    }
+
+    &_hidden {
+        opacity: 0;
+        transition: 2s;
+    }
+
+    &_wrong-input {
+        background-color: #EC7063;
+    }
+}
+
+
+
+.manage-leagues {
+    width: 800px;
+    margin: 40px auto 0;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, 270px);
+
+    &__btn {
+        cursor: pointer;
+        border: none;
+        @include font-style-main;
+        color: $accent-color;
+        border: 2px solid $accent-color;
+        background-color: $main-bg-color;
+        width: 230px;
+        height: 230px;
+
+
+        &:hover {
+            box-shadow: 0 0 20px rgba(69, 255, 144, 0.5);
+            background-color: $accent-color;
+            color: $league-tabs-color;
+            transition: 0.5s ease-in-out;
+
+            &::after {
+                content: '\A subscribe';
+                white-space: pre;
+                font-size: 16px;
+            }
+        }
+    }
+
+    &__league-added {
+        background-color: $league-tabs-color;
+        border: 2px solid $league-tabs-color;
+        color: $table-main-color  !important;
+        @include font-style-main;
+
+        &:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            background-color: $league-tabs-color;
+            color: $main-txt-color;
+            transition: 0.2s ease-in-out;
+
+            &::after {
+                content: '\A unsubscribe';
+                white-space: pre;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+
+.modal-wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    z-index: 1;
+
+    &__hidden {
+        display: none;
+    }
+}
+
+.modal-window,
+.modal-window-header {
+    position: absolute;
+    text-align: center;
+    opacity: 1 !important;
+    top: 40vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $main-bg-color;
+    padding: 30px;
+    box-shadow: 0 0 50% rgba(0, 0, 0, 0.7);
+    z-index: 100;
+
+    h3 {
+        color: $main-txt-color;
+    }
+
+    .btns-block {
+        margin-top: 30px;
+        width: 200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__hidden {
+        display: none;
+    }
+}
+
+.up-btn {
+    position: fixed;
+    right: calc((50% - 480px) / 1.1);
+    bottom: 15%;
+    font-size: 24px;
+    font-weight: 700;
+    &_hidden {
+        display: none;
+    }
+}

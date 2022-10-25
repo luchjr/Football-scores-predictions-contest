@@ -1,0 +1,82 @@
+.header-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    .header {
+        display: flex;
+        width: 1140px;
+        height: 100px;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 3px solid $inactive-link-color;
+        color: #ffffff;
+        @include font-style-main;
+
+        &__logo-wrapper {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        &__logo-name {
+            margin-left: 20px;
+        }
+
+        &__header__logo-major {
+            position: absolute;
+            top: 137px;
+            left: 167px;
+        }
+
+        &__menu-wrapper {
+            width: 800px;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+        }
+
+        &__link-wrapper {
+            justify-self: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__link {
+            color: $inactive-link-color;
+            flex-shrink: 0;
+            margin: 0 10px;
+            transition: .2s ease-in-out;
+
+            &:hover {
+                color: $main-txt-color;
+            }
+        }
+
+        .active {
+            color: $accent-color  !important;
+        }
+
+        &__btn-box {
+            margin-left: 10px;
+
+            .header__user-btn {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 110px;
+            }
+        }
+    }
+}
+
+.btn,
+.sign-up {
+    cursor: pointer;
+    flex-shrink: 0;
+    @include font-style-main;
+    color: $accent-color;
+    padding: 10px 20px;
+    background-color: $main-bg-color;
+    border: 1px solid $accent-color;
+}
